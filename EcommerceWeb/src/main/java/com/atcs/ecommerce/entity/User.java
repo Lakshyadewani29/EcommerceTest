@@ -9,6 +9,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -51,6 +52,17 @@ public class User {
 	
 	@OneToOne
 	private Cart cart;
+	
+	@ManyToOne
+	private Address address;
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
 
 	public int getId() {
 		return id;
@@ -138,7 +150,7 @@ public class User {
 	}
 
 	public User(int id, String firstname, String lastname, String email, String password, Role role, List<Order> order,
-			Wallet wallet, AuthenticationToken auth, Cart cart) {
+			Wallet wallet, AuthenticationToken auth, Cart cart,Address address) {
 		super();
 		this.id = id;
 		this.firstname = firstname;
@@ -150,6 +162,7 @@ public class User {
 		this.wallet = wallet;
 		this.auth = auth;
 		this.cart = cart;
+		this.address=address;
 	}
 	
 	

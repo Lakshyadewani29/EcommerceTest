@@ -37,13 +37,23 @@ public class OrderItem {
 	
 	@OneToOne
 	private Product product;
+	@OneToOne 
+	private Address address;
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
 
 	public OrderItem() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public OrderItem(int id, int quantity, double price, Date createdDate, Order order, Product product) {
+	public OrderItem(int id, int quantity, double price, Date createdDate, Order order, Product product,Address address) {
 		super();
 		this.id = id;
 		this.quantity = quantity;
@@ -51,6 +61,7 @@ public class OrderItem {
 		this.createdDate = createdDate;
 		this.order = order;
 		this.product = product;
+		this.address=address;
 	}
 
 	public int getId() {
